@@ -1,0 +1,21 @@
+{
+  "name": "godzilla-design-pack",
+  "version": "1.0.0",
+  "description": "Design helpers: buttons, backgrounds and etc.",
+  "scripts": {
+    "build": "./node_modules/gulp/bin/gulp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artemvolt/godzilla-design-pack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artemvolt/godzilla-design-pack/issues"
+  },
+  "homepage": "https://github.com/artemvolt/godzilla-design-pack#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}
