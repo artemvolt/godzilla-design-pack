@@ -9,13 +9,21 @@ use Godzilla\Pack\Icon;
  * Class FontAwesomeIcon
  * @package Godzilla\Pack\icon
  */
-class FontAwesomeIcon implements Icon
+class FontAwesomeIcon extends Icon
 {
+    /**
+     * @var array $params
+     */
     protected $params;
+    /**
+     * @var int $position
+     */
+    protected $position;
 
-    public function __construct(array $params = [])
+    public function __construct(int $position, array $params = [])
     {
         $this->params = $params;
+        $this->position = $position;
     }
 
     public function display(): string
@@ -29,6 +37,11 @@ class FontAwesomeIcon implements Icon
 
     public function isLeft(): bool
     {
-        return $this->params['position'] === 'left';
+        return $this->position === Icon::LEFT;
+    }
+
+    public function isRight(): bool
+    {
+        return $this->position === Icon::RIGHT;
     }
 }

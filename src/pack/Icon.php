@@ -1,14 +1,19 @@
 <?php
-declare(strict_types=1);
 
 namespace Godzilla\Pack;
 
-/**
- * Interface Icon
- * @package Godzilla\Pack
- */
-interface Icon
+abstract class Icon
 {
-    public function display() : string;
-    public function isLeft() : bool;
+    /**
+     * The constant is responsible for positioning the image to the left
+     */
+    public const LEFT = 1;
+    /**
+     * The constant is responsible for positioning the image to the right
+     */
+    public const RIGHT = 2;
+
+    abstract public function display(): string;
+    abstract public function isLeft(): bool;
+    abstract public function isRight(): bool;
 }

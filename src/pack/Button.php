@@ -17,11 +17,12 @@ interface Button
      * @param string $content
      * @return $this
      */
-    public function content(string $content);
+    public function content(string $content): Button;
 
     /**
+     * @param int $position
      * @param array $params
      * @return $this
      */
-    public function withIcon(array $params);
+    public function icon(int $position, array $params): Button;
 }
