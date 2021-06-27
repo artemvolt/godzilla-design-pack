@@ -37,11 +37,11 @@ class FontAwesomeIcon extends Icon
 
     public function isLeft(): bool
     {
-        return $this->position === Icon::LEFT;
+        return $this->position === Icon::POSITION_LEFT;
     }
 
     public function isRight(): bool
     {
-        return $this->position === Icon::RIGHT;
+        return $this->position === Icon::POSITION_RIGHT;
     }
 }

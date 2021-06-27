@@ -6,33 +6,15 @@ namespace Godzilla\Pack\button;
 use Godzilla\Pack\Button;
 use Godzilla\Pack\icon\FontAwesomeIcon;
 use Godzilla\Pack\Icon;
+use RuntimeException;
 use Webmozart\Assert\Assert;
 
 /**
  * Class BootstrapButton
  * @package Godzilla\Pack\button
  */
-class BootstrapButton implements Button
+class BootstrapButton extends Button
 {
-    /**
-     * @var string $content
-     */
-    protected $content;
-    /**
-     * @var array $params
-     */
-    protected $params;
-    /**
-     * @var Icon $icon
-     */
-    protected $icon;
-
-    public function __construct(string $content, array $params)
-    {
-        $this->params = $params;
-        $this->content = $content ?? "";
-    }
-
     public function display(): string
     {
         if ($this->icon->isLeft()) {
@@ -62,42 +44,36 @@ class BootstrapButton implements Button
      * @param array $params
      * @return $this
      */
-    public function icon(int $position = Icon::LEFT, array $params = []): Button
+    public function withIcon(int $position, array $params = []): self
     {
-        Assert::keyExists($params, 'type');
-        $withOutType = $params;
-        unset($withOutType['type']);
+        Assert::keyExists($params, 'font-pack');
 
-        switch ($params['type']) {
+        switch ($params['font-pack']) {
             case 'fa':
-                $this->icon = new FontAwesomeIcon($position, $withOutType);
+                $this->icon = new FontAwesomeIcon($position, $params);
                 break;
             default:
-                break;
+                throw new RuntimeException("Unknown font-pack value.");
         }
 
         return $this;
     }
 
     /**
-     * @todo После обсуждаения добавить/удалить
      * @param array $params
      * @return Button
      */
-    public function leftIcon(array $params = []): Button
+    public function withLeftIcon(array $params = []): Button
     {
-        Assert::keyExists($params, 'type');
-        $withOutType = $params;
-        unset($withOutType['type']);
+        return $this->withIcon(Icon::POSITION_LEFT, $params);
+    }
 
-        switch ($params['type']) {
-            case 'fa':
-                $this->icon = new FontAwesomeIcon(Icon::LEFT, $withOutType);
-                break;
-            default:
-                break;
-        }
-
-        return $this;
+    /**
+     * @param array $params
+     * @return Button
+     */
+    public function withRightIcon(array $params = []) : Button
+    {
+        return $this->withIcon(Icon::POSITION_RIGHT, $params);
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Godzilla\Pack;
 
 use Godzilla\Pack\button\BootstrapButton;
-use Godzilla\Pack\button\HtmlButton;
+use Godzilla\Pack\button\DefaultButton;
 use Webmozart\Assert\Assert;
 
 /**
@@ -27,14 +27,13 @@ class DesignPack
         return $theme;
     }
 
-    public function button(string $content) : Button
+    public function button(string $content, array $params = []) : Button
     {
         switch ($this->theme) {
             case 'bootstrap':
-                // @todo Реализовать передачу $params
-                return new BootstrapButton($content, []);
+                return new BootstrapButton($content, $params);
             default:
-                return new HtmlButton();
+                return new DefaultButton($content, $params);
         }
     }
 }

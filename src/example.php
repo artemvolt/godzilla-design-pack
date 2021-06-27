@@ -14,12 +14,10 @@ $pack = new DesignPack('bootstrap');
  * </div>
  */
 echo $pack->button('Hello')
-    ->icon(Icon::LEFT, [
-        'type' => 'fa', 'icon' => 'bolt'
-    ])
-    ->display();
+    ->withIcon(Icon::POSITION_LEFT, ['font-pack' => 'fa', 'icon' => 'bolt'])
+    ->display() . PHP_EOL;
 
 echo $pack->button('Hello')
-    ->leftIcon(['type' => 'fa', 'icon' => 'bolt'])
-    ->display();
+    ->withLeftIcon(['font-pack' => 'fa', 'icon' => 'bolt'])
+    ->display() . PHP_EOL;
 

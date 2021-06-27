@@ -2,16 +2,20 @@
 
 namespace Godzilla\Pack;
 
+/**
+ * Class Icon
+ * @package Godzilla\Pack
+ */
 abstract class Icon
 {
     /**
      * The constant is responsible for positioning the image to the left
      */
-    public const LEFT = 1;
+    const POSITION_LEFT = 1;
     /**
      * The constant is responsible for positioning the image to the right
      */
-    public const RIGHT = 2;
+    const POSITION_RIGHT = 2;
 
     abstract public function display(): string;
     abstract public function isLeft(): bool;
