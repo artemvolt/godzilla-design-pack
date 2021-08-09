@@ -6,6 +6,9 @@ use Godzilla\Pack\Icon;
 
 class DesignPackTest extends \Codeception\Test\Unit
 {
+    /**
+     * @var DesignPack $pack
+     */
     protected $pack;
 
     protected function _before()
@@ -21,8 +24,9 @@ class DesignPackTest extends \Codeception\Test\Unit
     // tests
     public function testButtonBootstrap()
     {
+        $expected = "<button class='btn btn-primary'><i class='fa fa-icon bolt'></i>Hello</button>";
         $this->assertEquals(
-            $expected = "<button class='btn btn-primary'><i class='fa fa-icon bolt'></i>Hello</button>",
+            $expected,
             $this->pack->button('Hello')
                 ->withIcon(Icon::POSITION_LEFT, ['font-pack' => 'fa', 'icon' => 'bolt'])
                 ->display()
