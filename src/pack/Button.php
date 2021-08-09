@@ -2,6 +2,7 @@
 
 namespace Godzilla\Pack;
 
+use Godzilla\Pack\icon\NoneExistentIcon;
 use Webmozart\Assert\Assert;
 
 /**
@@ -28,6 +29,7 @@ abstract class Button
     {
         $this->content = $content;
         $this->params = $params;
+        $this->icon = new NoneExistentIcon();
 
         if (array_key_exists('icon', $params)) {
             Assert::isInstanceOf($params['icon'], Icon::class);

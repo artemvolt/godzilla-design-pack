@@ -17,7 +17,7 @@ class BootstrapButton extends Button
 {
     public function display(): string
     {
-        if (null !== $this->icon) {
+        if ($this->icon->isExistent()) {
             if ($this->icon->isLeft()) {
                 return "<button class='btn btn-primary'>" .
                     $this->icon->display() .

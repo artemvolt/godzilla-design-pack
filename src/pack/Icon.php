@@ -20,4 +20,5 @@ abstract class Icon
     abstract public function display(): string;
     abstract public function isLeft(): bool;
     abstract public function isRight(): bool;
+    abstract public function isExistent(): bool;
 }
