@@ -49,19 +49,19 @@ abstract class Button
     /**
      * @param int $position
      * @param array $params
-     * @return $this
+     * @return Button
      */
-    abstract public function withIcon(int $position, array $params): self;
+    abstract public function withIcon(int $position, array $params): Button;
 
     /**
      * @param array $params
-     * @return Icon
+     * @return Button
      */
     abstract public function withLeftIcon(array $params): Button;
 
     /**
      * @param array $params
-     * @return Icon
+     * @return Button
      */
     abstract public function withRightIcon(array $params): Button;
 }
