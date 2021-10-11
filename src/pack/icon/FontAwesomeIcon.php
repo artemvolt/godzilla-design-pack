@@ -44,4 +44,9 @@ class FontAwesomeIcon extends Icon
     {
         return $this->position === Icon::POSITION_RIGHT;
     }
+
+    public function isExistent(): bool
+    {
+        return true;
+    }
 }

@@ -17,18 +17,19 @@ class BootstrapButton extends Button
 {
     public function display(): string
     {
-        if ($this->icon->isLeft()) {
-            return "<button class='btn btn-primary'>" .
-                $this->icon->display() .
-                $this->content .
-                "</button>";
-        }
-
-        if ($this->icon->isRight()) {
-            return "<button class='btn btn-primary'>" .
-                $this->content .
-                $this->icon->display() .
-                "</button>";
+        if ($this->icon->isExistent()) {
+            if ($this->icon->isLeft()) {
+                return "<button class='btn btn-primary'>" .
+                    $this->icon->display() .
+                    $this->content .
+                    "</button>";
+            }
+            if ($this->icon->isRight()) {
+                return "<button class='btn btn-primary'>" .
+                    $this->content .
+                    $this->icon->display() .
+                    "</button>";
+            }
         }
         return "<button class='btn btn-primary'>" . $this->content . "</button>";
     }

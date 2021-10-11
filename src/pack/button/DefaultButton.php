@@ -22,7 +22,17 @@ class DefaultButton extends Button
         throw new RuntimeException("Need implement method");
     }
 
-    public function withIcon(int $position, array $params): Icon
+    public function withIcon(int $position, array $params): Button
+    {
+        throw new RuntimeException("Need implement method");
+    }
+
+    public function withLeftIcon(array $params): Button
+    {
+        throw new RuntimeException("Need implement method");
+    }
+
+    public function withRightIcon(array $params): Button
     {
         throw new RuntimeException("Need implement method");
     }
